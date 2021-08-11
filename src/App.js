@@ -1,14 +1,5 @@
 import React from 'react';
 
-function Food ({fav, img}){
-  return (
-    <div>
-    <h2>I love {fav}</h2>
-    <img src={img}></img>
-    </div>
-  )
-}
-
 const foodILike = [
   {
     name : 'pizza',
@@ -32,11 +23,25 @@ const foodILike = [
   }
 ] 
 
-function App() {
+function Food({name, picture}) {
   return (
     <div>
-    {foodILike.map(food => <Food fav={food.name} img={food.image}/>)}
+    <h1>I love {name}</h1>
+    <img src={picture}></img>
     </div>
   )
 }
+
+function App() {
+    return (
+      <div>
+      <h1>hello!</h1>
+
+      {foodILike.map((each, index) => {
+        return <Food name={each.name} picture={each.image} key={index}/>
+      })}
+      </div>
+  )
+}
+
 export default App; 
